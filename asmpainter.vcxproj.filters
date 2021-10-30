@@ -28,7 +28,7 @@
     <Image Include="Icon\titleIcon.ico">
       <Filter>资源文件</Filter>
     </Image>
-    <Image Include="Icon\control.bmp">
+    <Image Include="Icon\controls.bmp">
       <Filter>资源文件</Filter>
     </Image>
   </ItemGroup>
@@ -51,6 +51,21 @@
       <Filter>资源文件</Filter>
     </None>
     <None Include="Icon\eraser2.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\grab.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\grabbing.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\drag.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\bucket.cur">
+      <Filter>资源文件</Filter>
+    </None>
+    <None Include="Icon\empty.cur">
       <Filter>资源文件</Filter>
     </None>
   </ItemGroup>

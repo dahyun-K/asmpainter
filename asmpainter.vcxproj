@@ -25,17 +25,22 @@
     <ResourceCompile Include="Resource.rc" />
   </ItemGroup>
   <ItemGroup>
-    <Image Include="Icon\control.bmp" />
+    <Image Include="Icon\controls.bmp" />
     <Image Include="Icon\titleIcon.ico" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Icon\bucket.cur" />
+    <None Include="Icon\drag.cur" />
+    <None Include="Icon\empty.cur" />
     <None Include="Icon\eraser16.cur" />
     <None Include="Icon\eraser2.cur" />
     <None Include="Icon\eraser4.cur" />
     <None Include="Icon\eraser8.cur" />
+    <None Include="Icon\grab.cur" />
+    <None Include="Icon\grabbing.cur" />
     <None Include="Icon\pen.cur" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
@@ -115,7 +120,7 @@
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
-      <SubSystem>Console</SubSystem>
+      <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\masm32\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
@@ -138,13 +143,14 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
       <AdditionalLibraryDirectories>C:\masm32\lib</AdditionalLibraryDirectories>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalOptions>/SAFESEH:NO %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <MASM>
       <IncludePaths>C:\masm32\include</IncludePaths>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
     </MASM>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

@@ -63,24 +63,27 @@ BEGIN
     END
     POPUP "编辑"
     BEGIN
-        MENUITEM "撤销",                          40006
+        MENUITEM "撤销",                          ID_UNDO
         MENUITEM "清空",                          ID_CLEAR
     END
     POPUP "图像"
     BEGIN
         POPUP "工具"
         BEGIN
-            MENUITEM "画笔",                          40009
-            MENUITEM "橡皮擦",                         40010
+            MENUITEM "画笔",                          ID_PEN
+            MENUITEM "橡皮擦",                         ID_ERASER
+            MENUITEM "油漆桶",                         ID_BUCKET
+            MENUITEM "图形工具",                        ID_SHAPE
+            MENUITEM "拖动画布",                        ID_DRAG
             MENUITEM SEPARATOR
-            MENUITEM "前景色",                         40012
+            MENUITEM "前景色",                         ID_FOR_COLOR
             MENUITEM "背景色",                         ID_BACK_COLOR
         END
         POPUP "画笔粗细"
         BEGIN
             MENUITEM "1像素",                         ID_ONE_PIXEL, CHECKED
             MENUITEM "2像素",                         ID_TWO_PIXEL
-            MENUITEM "4像素",                         40019
+            MENUITEM "4像素",                         ID_FOUR_PIXEL
         END
         POPUP "橡皮擦大小"
         BEGIN
@@ -89,8 +92,20 @@ BEGIN
             MENUITEM "8像素",                         ID_ERA_EIGHT_PIXEL
             MENUITEM "16像素",                        ID_ERA_SIXTEEN_PIXEL
         END
-        MENUITEM "画布大小",                        40029
+        POPUP "图形类型"
+        BEGIN
+            MENUITEM "矩形",                          ID_RECTANGLE, CHECKED, MENUBARBREAK
+            MENUITEM "椭圆",                          ID_ELLIPSE
+            MENUITEM "直线",                          ID_LINE
+        END
+        POPUP "图形填充模式"
+        BEGIN
+            MENUITEM "无填充",                         ID_FILLNO
+            MENUITEM "填充前景色",                       ID_FILLFORE
+            MENUITEM "填充背景色",                       ID_FILLBACK, CHECKED
+        END
     END
+    MENUITEM "画布",                          ID_CANVAS_SIZE
 END
 
 
@@ -119,13 +134,72 @@ IDC_ERASER8             CURSOR                  "Icon\\eraser8.cur"
 
 IDC_ERASER16            CURSOR                  "Icon\\eraser16.cur"
 
+IDC_GRAB                CURSOR                  "Icon\\grab.cur"
+
+IDC_GRABBING            CURSOR                  "Icon\\grabbing.cur"
+
+IDC_DRAG                CURSOR                  "Icon\\drag.cur"
+
+IDC_BUCKET              CURSOR                  "Icon\\bucket.cur"
+
+IDC_EMPTY               CURSOR                  "Icon\\empty.cur"
+
 
 /////////////////////////////////////////////////////////////////////////////
 //
 // Bitmap
 //
 
-IDB_CONTROLS            BITMAP                  "Icon\\control.bmp"
+IDB_CONTROLS            BITMAP                  "Icon\\controls.bmp"
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Dialog
+//
+
+IDD_DIALOG1 DIALOGEX 0, 0, 192, 86
+STYLE DS_SETFONT | DS_MODALFRAME | DS_FIXEDSYS | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "画布大小"
+FONT 8, "MS Shell Dlg", 400, 0, 0x1
+BEGIN
+    DEFPUSHBUTTON   "确定",ID_OK,29,57,50,14
+    PUSHBUTTON      "取消",ID_CANCEL,111,57,50,14
+    EDITTEXT        IDC_WIDTH,87,17,56,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_HEIGHT,87,34,56,12,ES_AUTOHSCROLL
+    LTEXT           "宽度：",IDC_STATIC1,52,20,27,8
+    LTEXT           "高度：",IDC_STATIC2,52,35,27,11
+END
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// DESIGNINFO
+//
+
+#ifdef APSTUDIO_INVOKED
+GUIDELINES DESIGNINFO
+BEGIN
+    IDD_DIALOG1, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 185
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 79
+    END
+END
+#endif    // APSTUDIO_INVOKED
+
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// AFX_DIALOG_LAYOUT
+//
+
+IDD_DIALOG1 AFX_DIALOG_LAYOUT
+BEGIN
+    0
+END
 
 #endif    // 中文(简体，中国) resources
 /////////////////////////////////////////////////////////////////////////////
